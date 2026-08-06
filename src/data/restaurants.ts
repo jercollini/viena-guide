@@ -1,0 +1,66 @@
+export interface Restaurant {
+  id: string
+  name: string
+  cuisine: string
+  area: string
+  note: string
+  lat: number
+  lng: number
+}
+
+export const restaurants: Restaurant[] = [
+  {
+    id: 'figlmuller',
+    name: 'Figlmüller',
+    cuisine: 'Vienesa tradicional',
+    area: 'Centro (cerca de la Catedral)',
+    note: 'Famoso por su enorme Wiener Schnitzel (escalope). Muy conocido; conviene reservar.',
+    lat: 48.2089,
+    lng: 16.3746,
+  },
+  {
+    id: 'plachutta',
+    name: 'Plachutta Wollzeile',
+    cuisine: 'Vienesa tradicional',
+    area: 'Centro',
+    note: 'La casa del Tafelspitz (carne cocida al estilo imperial). Comida clásica y cómoda.',
+    lat: 48.2093,
+    lng: 16.3785,
+  },
+  {
+    id: 'cafecentral',
+    name: 'Café Central',
+    cuisine: 'Café histórico',
+    area: 'Centro',
+    note: 'Precioso café clásico vienés. Ideal para un café con tarta (Sachertorte o Apfelstrudel).',
+    lat: 48.2103,
+    lng: 16.3659,
+  },
+  {
+    id: 'sacher',
+    name: 'Café Sacher',
+    cuisine: 'Café y repostería',
+    area: 'Junto a la Ópera',
+    note: 'La tarta Sachertorte original. Ambiente elegante y tranquilo.',
+    lat: 48.2036,
+    lng: 16.3696,
+  },
+  {
+    id: 'gasthaus-poschl',
+    name: 'Gasthaus Pöschl',
+    cuisine: 'Vienesa casera',
+    area: 'Centro',
+    note: 'Restaurante pequeño y acogedor con cocina local honesta. Trato cercano.',
+    lat: 48.2066,
+    lng: 16.3728,
+  },
+  {
+    id: 'schweizerhaus',
+    name: 'Schweizerhaus',
+    cuisine: 'Cervecería / jardín',
+    area: 'Prater',
+    note: 'Clásico con codillo (Stelze) y cerveza. Amplio, con terraza; buen ambiente familiar.',
+    lat: 48.2147,
+    lng: 16.4009,
+  },
+]
