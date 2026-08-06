@@ -29,6 +29,23 @@ npm run coverage # run tests with coverage
 ## Deployment
 
 Pushing to `main` triggers a GitHub Actions workflow that builds the app and
-publishes it to GitHub Pages. The Vite `base` in `vite.config.ts` must match the
-repository name.
+publishes it to GitHub Pages.
+
+### Workflow
+
+The deployment workflow is defined in `.github/workflows/deploy.yml` and:
+
+- installs dependencies with `npm ci`
+- runs the production build with `npm run build`
+- uploads the generated `dist` folder as a GitHub Pages artifact
+- deploys that artifact through the GitHub Pages action
+
+### Notes
+
+- The Vite `base` in `vite.config.ts` must match the repository name so asset
+  paths resolve correctly on GitHub Pages.
+- GitHub Pages must be enabled for the repository and set to use the
+  `GitHub Actions` source in the repository Settings.
+- If deployment appears to hang in a queued state, check the Pages settings and
+  the workflow run logs for repository-level permission or configuration issues.
 
