@@ -1,11 +1,12 @@
 /// <reference types="vitest/config" />
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { guide } from './src/guide/config'
 
-// base debe coincidir con el nombre del repo en GitHub para GitHub Pages
 export default defineConfig({
   plugins: [react()],
-  base: '/viena-guide/',
+  // Must match the GitHub repo name so assets resolve on GitHub Pages.
+  base: `/${guide.repo}/`,
   test: {
     globals: true,
     environment: 'jsdom',

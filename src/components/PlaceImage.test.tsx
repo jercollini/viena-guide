@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
 import PlaceImage from './PlaceImage'
-import { Place } from '../data/places'
+import type { Place } from '../types'
 
 const place: Place = {
   id: 'test',

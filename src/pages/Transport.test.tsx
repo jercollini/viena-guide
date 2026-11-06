@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import Transport from './Transport'
-import { transport } from '../data/transport'
+import { transport } from '../guide/transport'
 
 describe('Transport', () => {
   it('renders every transport section', () => {

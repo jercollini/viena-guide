@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react'
+import { guide } from '../guide/config'
 
 interface WeatherState {
   temp: number
   code: number
 }
 
-// Coordenadas de Viena. Open-Meteo es gratuito y no requiere clave.
+// Open-Meteo is free and needs no API key.
 const URL =
-  'https://api.open-meteo.com/v1/forecast?latitude=48.2082&longitude=16.3738&current=temperature_2m,weather_code&timezone=Europe%2FVienna'
+  'https://api.open-meteo.com/v1/forecast' +
+  `?latitude=${guide.coords.lat}&longitude=${guide.coords.lng}` +
+  `&current=temperature_2m,weather_code&timezone=${encodeURIComponent(guide.timezone)}`
 
 function describe(code: number): { icon: string; text: string } {
   if (code === 0) return { icon: '☀️', text: 'Despejado' }
@@ -47,7 +50,7 @@ export default function WeatherWidget() {
       <div className="weather weather--muted">
         <span className="weather__icon" aria-hidden="true">🌡️</span>
         <div>
-          <div className="weather__desc">Tiempo en Viena</div>
+          <div className="weather__desc">Tiempo en {guide.city}</div>
           <div>No disponible ahora mismo</div>
         </div>
       </div>
@@ -71,7 +74,7 @@ export default function WeatherWidget() {
       <span className="weather__icon" aria-hidden="true">{icon}</span>
       <div>
         <div className="weather__temp">{weather.temp}°C</div>
-        <div className="weather__desc">{text} · Viena ahora</div>
+        <div className="weather__desc">{text} · {guide.city} ahora</div>
       </div>
     </div>
   )

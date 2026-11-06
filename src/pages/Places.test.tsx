@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import Places from './Places'
-import { places } from '../data/places'
+import { places } from '../guide/places'
 
 describe('Places', () => {
   it('renders every place with name and map link', () => {

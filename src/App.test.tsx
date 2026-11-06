@@ -1,3 +1,4 @@
+import { guide } from './guide/config'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
@@ -8,7 +9,7 @@ vi.mock('react-leaflet', () => ({
   Marker: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
   Popup: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
 }))
-vi.mock('leaflet', () => ({ default: { divIcon: () => ({}) } }))
+vi.mock('leaflet', () => ({ default: { divIcon: () => ({}), latLngBounds: () => ({}) } }))
 
 import App from './App'
 
@@ -23,7 +24,7 @@ describe('App (routing)', () => {
         <App />
       </MemoryRouter>,
     )
-    expect(screen.getByText('Viena')).toBeInTheDocument()
+    expect(screen.getByText(guide.city)).toBeInTheDocument()
   })
 
   it('renders the phrases page on its route', () => {
@@ -43,6 +44,6 @@ describe('App (routing)', () => {
         <App />
       </MemoryRouter>,
     )
-    expect(screen.getByText('Viena')).toBeInTheDocument()
+    expect(screen.getByText(guide.city)).toBeInTheDocument()
   })
 })

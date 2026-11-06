@@ -1,8 +1,9 @@
+import { guide } from '../guide/config'
 import { useEffect, useState } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import L from 'leaflet'
-import { places } from '../data/places'
-import { restaurants } from '../data/restaurants'
+import { places } from '../guide/places'
+import { restaurants } from '../guide/restaurants'
 
 // Marcadores en forma de gota, coloreados desde el tema (CSS).
 function pinIcon(kind: 'place' | 'food') {
@@ -35,7 +36,11 @@ function useTileStyle() {
   return style
 }
 
-const center: [number, number] = [48.2082, 16.3738]
+// Frame every marker (day trips included) instead of a fixed center/zoom.
+const points: [number, number][] = [...places, ...restaurants].map((x) => [x.lat, x.lng])
+const bounds = points.length
+  ? L.latLngBounds(points)
+  : L.latLngBounds([[guide.coords.lat, guide.coords.lng]])
 
 export default function MapPage() {
   const tileStyle = useTileStyle()
@@ -48,8 +53,8 @@ export default function MapPage() {
       </p>
       <div className="map-container">
         <MapContainer
-          center={center}
-          zoom={13}
+          bounds={bounds}
+          boundsOptions={{ padding: [28, 28], maxZoom: guide.mapZoom + 2 }}
           style={{ height: '100%', width: '100%' }}
           scrollWheelZoom={false}
         >

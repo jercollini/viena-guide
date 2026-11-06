@@ -1,12 +1,11 @@
+import { guide } from '../guide/config'
 import Icon from '../components/Icon'
-import { emergencyContacts, emergencyTips } from '../data/emergency'
+import { emergencyContacts, emergencyTips } from '../guide/emergency'
 
 export default function Emergency() {
   return (
     <div>
-      <p className="page-intro">
-        Teléfonos importantes. Toca «Llamar» para marcar directamente.
-      </p>
+      <p className="page-intro">{guide.intro.emergency}</p>
       {emergencyContacts.map((c) => (
         <div key={c.label}>
           <div className="emergency-item">

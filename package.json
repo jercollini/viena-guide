@@ -1,5 +1,5 @@
 {
-  "name": "viena-guia",
+  "name": "viena-guide",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "wiki-image": "node scripts/wiki-image.mjs"
   },
   "dependencies": {
     "leaflet": "^1.9.4",

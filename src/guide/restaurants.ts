@@ -1,12 +1,4 @@
-export interface Restaurant {
-  id: string
-  name: string
-  cuisine: string
-  area: string
-  note: string
-  lat: number
-  lng: number
-}
+import type { Restaurant } from '../types'
 
 export const restaurants: Restaurant[] = [
   {

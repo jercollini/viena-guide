@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import Emergency from './Emergency'
-import { emergencyContacts, emergencyTips } from '../data/emergency'
+import { emergencyContacts, emergencyTips } from '../guide/emergency'
 
 describe('Emergency', () => {
   it('renders every emergency contact', () => {

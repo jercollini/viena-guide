@@ -7,12 +7,14 @@ import Transport from './pages/Transport'
 import Phrases from './pages/Phrases'
 import Emergency from './pages/Emergency'
 import MapPage from './pages/MapPage'
+import Itinerary from './pages/Itinerary'
 
 export default function App() {
   return (
     <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/plan" element={<Itinerary />} />
         <Route path="/lugares" element={<Places />} />
         <Route path="/restaurantes" element={<Restaurants />} />
         <Route path="/transporte" element={<Transport />} />

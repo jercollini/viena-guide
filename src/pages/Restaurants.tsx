@@ -1,14 +1,12 @@
-import { restaurants } from '../data/restaurants'
+import { guide } from '../guide/config'
+import { restaurants } from '../guide/restaurants'
 import Reveal from '../components/Reveal'
 import Icon from '../components/Icon'
 
 export default function Restaurants() {
   return (
     <div>
-      <p className="page-intro">
-        Sitios para comer cocina vienesa y cafés clásicos. Conviene reservar en
-        los más conocidos.
-      </p>
+      <p className="page-intro">{guide.intro.restaurants}</p>
       {restaurants.map((r, i) => (
         <Reveal key={r.id} delay={i * 40}>
           <article className="card">

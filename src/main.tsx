@@ -2,8 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { HashRouter } from 'react-router-dom'
 import App from './App'
+import { guide } from './guide/config'
 import './index.css'
 import 'leaflet/dist/leaflet.css'
+
+document.title = `${guide.city} · ${guide.brand}`
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

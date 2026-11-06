@@ -3,9 +3,10 @@ import WeatherWidget from '../components/WeatherWidget'
 import BlurText from '../components/BlurText'
 import Reveal from '../components/Reveal'
 import Icon from '../components/Icon'
-import { places } from '../data/places'
+import { guide } from '../guide/config'
 
 const menu = [
+  { to: '/plan', icon: 'calendar', label: 'Plan día a día' },
   { to: '/lugares', icon: 'places', label: 'Lugares imprescindibles' },
   { to: '/restaurantes', icon: 'food', label: 'Dónde comer' },
   { to: '/transporte', icon: 'transport', label: 'Cómo moverse' },
@@ -20,15 +21,15 @@ export default function Home() {
       <section className="hero">
         <div
           className="hero__photo"
-          style={{ backgroundImage: `url(${places.find((p) => p.id === 'schonbrunn')?.image})` }}
+          style={{ backgroundImage: `url(${guide.heroImage})` }}
           aria-hidden="true"
         />
         <div className="hero__content">
-          <div className="hero__eyebrow">4 días en</div>
+          <div className="hero__eyebrow">{guide.days} {guide.days === 1 ? 'día' : 'días'} en</div>
           <h1 className="hero__title">
-            <BlurText text="Viena" />
+            <BlurText text={guide.city} />
           </h1>
-          <p className="hero__subtitle">Vuestra guía, sencilla y a mano.</p>
+          <p className="hero__subtitle">{guide.tagline}</p>
         </div>
       </section>
 

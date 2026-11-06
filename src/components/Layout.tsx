@@ -2,10 +2,12 @@ import { ReactNode } from 'react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import Icon from './Icon'
 import ThemeSwitcher from './ThemeSwitcher'
+import { guide } from '../guide/config'
 import '../App.css'
 
 const titles: Record<string, string> = {
-  '/': 'Viajes J.R. Collini',
+  '/': guide.brand,
+  '/plan': 'Plan día a día',
   '/lugares': 'Lugares imprescindibles',
   '/restaurantes': 'Dónde comer',
   '/transporte': 'Cómo moverse',
@@ -16,6 +18,7 @@ const titles: Record<string, string> = {
 
 const navItems = [
   { to: '/', icon: 'home', label: 'Inicio' },
+  { to: '/plan', icon: 'calendar', label: 'Plan' },
   { to: '/lugares', icon: 'places', label: 'Lugares' },
   { to: '/restaurantes', icon: 'food', label: 'Comer' },
   { to: '/mapa', icon: 'map', label: 'Mapa' },
@@ -26,7 +29,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   const location = useLocation()
   const navigate = useNavigate()
   const isHome = location.pathname === '/'
-  const title = titles[location.pathname] ?? 'Viajes J.R. Collini'
+  const title = titles[location.pathname] ?? guide.brand
 
   return (
     <>

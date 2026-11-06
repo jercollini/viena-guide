@@ -1,4 +1,5 @@
-import { places } from '../data/places'
+import { guide } from '../guide/config'
+import { places } from '../guide/places'
 import PlaceImage from '../components/PlaceImage'
 import Reveal from '../components/Reveal'
 import Icon from '../components/Icon'
@@ -6,10 +7,7 @@ import Icon from '../components/Icon'
 export default function Places() {
   return (
     <div>
-      <p className="page-intro">
-        Los lugares más bonitos e importantes de Viena. Toca «Cómo llegar» para
-        abrir el mapa con la ruta.
-      </p>
+      <p className="page-intro">{guide.intro.places}</p>
       {places.map((place, i) => (
         <Reveal key={place.id} delay={i * 40}>
           <article className="card">

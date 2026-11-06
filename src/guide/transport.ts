@@ -1,7 +1,4 @@
-export interface TransportItem {
-  title: string
-  body: string
-}
+import type { TransportItem } from '../types'
 
 export const transport: TransportItem[] = [
   {

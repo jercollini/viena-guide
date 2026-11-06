@@ -1,14 +1,4 @@
-export interface Place {
-  id: string
-  name: string
-  category: 'Monumento' | 'Palacio' | 'Museo' | 'Iglesia' | 'Ocio' | 'Mercado'
-  description: string
-  address: string
-  lat: number
-  lng: number
-  image: string
-  tip?: string
-}
+import type { Place } from '../types'
 
 // Imágenes desde Wikimedia Commons (uso libre).
 export const places: Place[] = [

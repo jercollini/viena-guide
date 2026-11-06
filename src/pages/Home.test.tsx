@@ -1,3 +1,4 @@
+import { guide } from '../guide/config'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
@@ -14,8 +15,8 @@ describe('Home', () => {
         <Home />
       </MemoryRouter>,
     )
-    expect(screen.getByText('Viena')).toBeInTheDocument()
-    expect(screen.getByText(/Vuestra guía/)).toBeInTheDocument()
+    expect(screen.getByText(guide.city)).toBeInTheDocument()
+    expect(screen.getByText(guide.tagline)).toBeInTheDocument()
   })
 
   it('renders the menu cards with their links', () => {

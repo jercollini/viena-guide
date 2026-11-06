@@ -1,11 +1,10 @@
-import { transport } from '../data/transport'
+import { guide } from '../guide/config'
+import { transport } from '../guide/transport'
 
 export default function Transport() {
   return (
     <div>
-      <p className="page-intro">
-        Cómo moverse por Viena de forma sencilla y cómoda.
-      </p>
+      <p className="page-intro">{guide.intro.transport}</p>
       {transport.map((item) => (
         <article key={item.title} className="card">
           <div className="card__body">

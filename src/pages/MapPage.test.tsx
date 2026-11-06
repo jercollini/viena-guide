@@ -14,12 +14,12 @@ vi.mock('react-leaflet', () => ({
 }))
 
 vi.mock('leaflet', () => ({
-  default: { divIcon: () => ({}) },
+  default: { divIcon: () => ({}), latLngBounds: () => ({}) },
 }))
 
 import MapPage from './MapPage'
-import { places } from '../data/places'
-import { restaurants } from '../data/restaurants'
+import { places } from '../guide/places'
+import { restaurants } from '../guide/restaurants'
 
 describe('MapPage', () => {
   it('renders the map with a marker per place and restaurant', () => {

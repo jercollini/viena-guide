@@ -1,9 +1,4 @@
-export interface EmergencyContact {
-  label: string
-  value: string
-  phone?: string
-  info?: string
-}
+import type { EmergencyContact } from '../types'
 
 export const emergencyContacts: EmergencyContact[] = [
   {

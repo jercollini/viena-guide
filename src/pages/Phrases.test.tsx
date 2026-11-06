@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import Phrases from './Phrases'
-import { phraseGroups } from '../data/phrases'
+import { phraseGroups } from '../guide/phrases'
 
 describe('Phrases', () => {
   it('renders every phrase group', () => {
@@ -17,6 +17,6 @@ describe('Phrases', () => {
     render(<Phrases />)
     const first = phraseGroups[0].items[0]
     expect(screen.getByText(first.es)).toBeInTheDocument()
-    expect(screen.getByText(first.de)).toBeInTheDocument()
+    expect(screen.getByText(first.local)).toBeInTheDocument()
   })
 })

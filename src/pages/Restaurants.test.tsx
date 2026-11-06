@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import Restaurants from './Restaurants'
-import { restaurants } from '../data/restaurants'
+import { restaurants } from '../guide/restaurants'
 
 describe('Restaurants', () => {
   it('renders every restaurant', () => {

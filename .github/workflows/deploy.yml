@@ -17,6 +17,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # The kit itself is private: Pages only deploys from public guide repos.
+    if: ${{ !github.event.repository.private }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
@@ -24,6 +26,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - run: npm test
       - run: npm run build
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
