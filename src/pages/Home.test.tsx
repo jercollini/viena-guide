@@ -28,9 +28,9 @@ describe('Home', () => {
     expect(
       screen.getByRole('link', { name: /Lugares imprescindibles/ }),
     ).toHaveAttribute('href', '/lugares')
-    expect(screen.getByRole('link', { name: /Dónde comer/ })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: /Comida típica/ })).toHaveAttribute(
       'href',
-      '/restaurantes',
+      '/comida',
     )
     expect(screen.getByRole('link', { name: /Emergencias/ })).toHaveAttribute(
       'href',

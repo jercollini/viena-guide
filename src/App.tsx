@@ -1,8 +1,8 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import Places from './pages/Places'
-import Restaurants from './pages/Restaurants'
+import Food from './pages/Food'
 import Transport from './pages/Transport'
 import Phrases from './pages/Phrases'
 import Emergency from './pages/Emergency'
@@ -16,7 +16,8 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/plan" element={<Itinerary />} />
         <Route path="/lugares" element={<Places />} />
-        <Route path="/restaurantes" element={<Restaurants />} />
+        <Route path="/comida" element={<Food />} />
+        <Route path="/restaurantes" element={<Navigate to="/comida" replace />} />
         <Route path="/transporte" element={<Transport />} />
         <Route path="/frases" element={<Phrases />} />
         <Route path="/emergencias" element={<Emergency />} />

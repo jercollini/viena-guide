@@ -2,7 +2,7 @@
 import { describe, it, expect } from 'vitest'
 import { guide } from './config'
 import { places } from './places'
-import { restaurants } from './restaurants'
+import { dishes } from './food'
 import { itinerary } from './itinerary'
 import { phraseGroups } from './phrases'
 import { emergencyContacts } from './emergency'
@@ -35,24 +35,27 @@ describe('guide data', () => {
   })
 
   it('uses unique ids', () => {
-    for (const list of [places, restaurants]) {
+    for (const list of [places, dishes]) {
       const ids = list.map((x) => x.id)
       expect(new Set(ids).size).toBe(ids.length)
     }
   })
 
-  it('places and restaurants are near the city and have https images', () => {
+  it('places and food spots are near the city and have https images', () => {
     for (const p of places) {
       expect(near(p.lat, p.lng), `${p.name} is far from ${guide.city}`).toBe(true)
       expect(p.image).toMatch(/^https:\/\//)
     }
-    for (const r of restaurants)
-      expect(near(r.lat, r.lng), `${r.name} is far from ${guide.city}`).toBe(true)
+    for (const d of dishes) {
+      if (d.image) expect(d.image).toMatch(/^https:\/\//)
+      if (d.spot)
+        expect(near(d.spot.lat, d.spot.lng), `${d.spot.name} is far from ${guide.city}`).toBe(true)
+    }
   })
 
   it('has content in every section', () => {
     expect(places.length).toBeGreaterThanOrEqual(6)
-    expect(restaurants.length).toBeGreaterThanOrEqual(5)
+    expect(dishes.length).toBeGreaterThanOrEqual(6)
     expect(transport.length).toBeGreaterThanOrEqual(3)
     expect(phraseGroups.flatMap((g) => g.items).length).toBeGreaterThanOrEqual(10)
     expect(emergencyContacts.some((c) => c.phone === '112')).toBe(true)

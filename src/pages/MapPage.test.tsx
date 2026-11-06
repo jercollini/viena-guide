@@ -19,14 +19,14 @@ vi.mock('leaflet', () => ({
 
 import MapPage from './MapPage'
 import { places } from '../guide/places'
-import { restaurants } from '../guide/restaurants'
+import { dishes } from '../guide/food'
 
 describe('MapPage', () => {
-  it('renders the map with a marker per place and restaurant', () => {
+  it('renders the map with a marker per place and food spot', () => {
     render(<MapPage />)
     expect(screen.getByTestId('map')).toBeInTheDocument()
     expect(screen.getAllByTestId('marker')).toHaveLength(
-      places.length + restaurants.length,
+      places.length + dishes.filter((d) => d.spot).length,
     )
   })
 

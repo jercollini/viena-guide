@@ -8,7 +8,7 @@ import { guide } from '../guide/config'
 const menu = [
   { to: '/plan', icon: 'calendar', label: 'Plan día a día' },
   { to: '/lugares', icon: 'places', label: 'Lugares imprescindibles' },
-  { to: '/restaurantes', icon: 'food', label: 'Dónde comer' },
+  { to: '/comida', icon: 'food', label: 'Comida típica' },
   { to: '/transporte', icon: 'transport', label: 'Cómo moverse' },
   { to: '/frases', icon: 'phrases', label: 'Frases útiles' },
   { to: '/mapa', icon: 'map', label: 'Mapa' },

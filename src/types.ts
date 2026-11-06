@@ -25,7 +25,7 @@ export interface GuideConfig {
   intro: {
     itinerary: string
     places: string
-    restaurants: string
+    food: string
     transport: string
     phrases: string
     emergency: string
@@ -45,14 +45,28 @@ export interface Place {
   tip?: string
 }
 
-export interface Restaurant {
-  id: string
+/** A long-standing place known for a dish. Optional: the dish is the point. */
+export interface FoodSpot {
   name: string
-  cuisine: string
   area: string
-  note: string
   lat: number
   lng: number
+}
+
+export interface Dish {
+  id: string
+  /** Name as you'd find it on a menu, in the local language. */
+  name: string
+  /** Short Spanish gloss, e.g. "escalope empanado". */
+  nameEs?: string
+  /** Plato, Dulce, Bebida, Para picar… */
+  kind: string
+  description: string
+  /** Wikimedia photo of the dish (from scripts/wiki-image.mjs). */
+  image?: string
+  /** Timeless advice: when/how it's eaten, how to order it. */
+  tip?: string
+  spot?: FoodSpot
 }
 
 export interface TransportItem {

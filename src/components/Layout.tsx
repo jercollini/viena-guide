@@ -9,7 +9,7 @@ const titles: Record<string, string> = {
   '/': guide.brand,
   '/plan': 'Plan día a día',
   '/lugares': 'Lugares imprescindibles',
-  '/restaurantes': 'Dónde comer',
+  '/comida': 'Comida típica',
   '/transporte': 'Cómo moverse',
   '/frases': 'Frases útiles',
   '/emergencias': 'Emergencias',
@@ -20,7 +20,7 @@ const navItems = [
   { to: '/', icon: 'home', label: 'Inicio' },
   { to: '/plan', icon: 'calendar', label: 'Plan' },
   { to: '/lugares', icon: 'places', label: 'Lugares' },
-  { to: '/restaurantes', icon: 'food', label: 'Comer' },
+  { to: '/comida', icon: 'food', label: 'Comer' },
   { to: '/mapa', icon: 'map', label: 'Mapa' },
   { to: '/emergencias', icon: 'sos', label: 'SOS' },
 ]

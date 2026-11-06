@@ -3,7 +3,10 @@ import { useEffect, useState } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import L from 'leaflet'
 import { places } from '../guide/places'
-import { restaurants } from '../guide/restaurants'
+import { dishes } from '../guide/food'
+
+// Only dishes tied to a famous spot get a marker.
+const foodSpots = dishes.flatMap((d) => (d.spot ? [{ dish: d, spot: d.spot }] : []))
 
 // Marcadores en forma de gota, coloreados desde el tema (CSS).
 function pinIcon(kind: 'place' | 'food') {
@@ -37,7 +40,7 @@ function useTileStyle() {
 }
 
 // Frame every marker (day trips included) instead of a fixed center/zoom.
-const points: [number, number][] = [...places, ...restaurants].map((x) => [x.lat, x.lng])
+const points: [number, number][] = [...places, ...foodSpots.map((f) => f.spot)].map((x) => [x.lat, x.lng])
 const bounds = points.length
   ? L.latLngBounds(points)
   : L.latLngBounds([[guide.coords.lat, guide.coords.lng]])
@@ -48,7 +51,7 @@ export default function MapPage() {
     <div>
       <p className="page-intro">
         <span className="legend legend--place">lugares para visitar</span>
-        <span className="legend legend--food">sitios para comer</span>
+        <span className="legend legend--food">dónde probar la comida típica</span>
         Toca un marcador para ver el nombre.
       </p>
       <div className="map-container">
@@ -72,12 +75,12 @@ export default function MapPage() {
               </Popup>
             </Marker>
           ))}
-          {restaurants.map((r) => (
-            <Marker key={r.id} position={[r.lat, r.lng]} icon={foodIcon}>
+          {foodSpots.map(({ dish, spot }) => (
+            <Marker key={dish.id} position={[spot.lat, spot.lng]} icon={foodIcon}>
               <Popup>
-                <strong>{r.name}</strong>
+                <strong>{spot.name}</strong>
                 <br />
-                {r.cuisine}
+                {dish.name}
               </Popup>
             </Marker>
           ))}

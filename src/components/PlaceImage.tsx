@@ -1,8 +1,7 @@
 import { useState } from 'react'
-import type { Place } from '../types'
 
 // Muestra la foto; si falla la carga, deja un fondo con degradado y el nombre.
-export default function PlaceImage({ place }: { place: Place }) {
+export default function PlaceImage({ place }: { place: { name: string; image: string } }) {
   const [failed, setFailed] = useState(false)
 
   if (failed) {

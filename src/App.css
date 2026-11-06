@@ -548,3 +548,23 @@
 .stop__place span { display: flex; flex-direction: column; line-height: 1.25; min-width: 0; }
 .stop__place strong { font-size: 0.92rem; }
 .stop__place small { color: var(--text-soft); font-size: 0.8rem; display: inline-flex; gap: 4px; align-items: center; }
+
+/* ===== Food ===== */
+.dish__gloss { margin: -4px 0 10px; font-style: italic; color: var(--text-soft); }
+.dish__spot {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border-strong);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.dish__spot-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tag-fg);
+}
+.dish__spot strong { font-size: 1.05rem; margin-top: 2px; }
+.dish__spot .address { margin: 2px 0 0; }

@@ -18,8 +18,8 @@ export const guide: GuideConfig = {
       'Una propuesta día a día para aprovechar el viaje sin prisas. Cambiad el orden según el tiempo y las ganas.',
     places:
       'Los lugares más bonitos e importantes de Viena. Toca «Cómo llegar» para abrir el mapa con la ruta.',
-    restaurants:
-      'Sitios para comer cocina vienesa y cafés clásicos. Conviene reservar en los más conocidos.',
+    food:
+      'Los sabores de Viena que no os podéis ir sin probar. Si un local es famoso por un plato, lo indicamos.',
     transport: 'Cómo moverse por Viena de forma sencilla y cómoda.',
     phrases:
       'Frases básicas en alemán con una pronunciación aproximada (leedla como si fuera español).',
