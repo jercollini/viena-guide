@@ -1,5 +1,6 @@
 import { restaurants } from '../data/restaurants'
 import Reveal from '../components/Reveal'
+import Icon from '../components/Icon'
 
 export default function Restaurants() {
   return (
@@ -14,7 +15,7 @@ export default function Restaurants() {
             <div className="card__body">
               <span className="tag">{r.cuisine}</span>
               <h2>{r.name}</h2>
-              <p className="address">📍 {r.area}</p>
+              <p className="address"><Icon name="pin" size={15} /> {r.area}</p>
               <p>{r.note}</p>
               <a
                 className="btn-link"
@@ -22,7 +23,7 @@ export default function Restaurants() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                🧭 Cómo llegar
+                <Icon name="compass" size={18} /> Cómo llegar
               </a>
             </div>
           </article>

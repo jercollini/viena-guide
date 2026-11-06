@@ -1,9 +1,11 @@
 import { ReactNode } from 'react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
+import Icon from './Icon'
+import ThemeSwitcher from './ThemeSwitcher'
 import '../App.css'
 
 const titles: Record<string, string> = {
-  '/': 'Guía de Viena Para Juan y Andrea',
+  '/': 'Viajes J.R. Collini',
   '/lugares': 'Lugares imprescindibles',
   '/restaurantes': 'Dónde comer',
   '/transporte': 'Cómo moverse',
@@ -13,18 +15,18 @@ const titles: Record<string, string> = {
 }
 
 const navItems = [
-  { to: '/', icon: '🏠', label: 'Inicio' },
-  { to: '/lugares', icon: '📸', label: 'Lugares' },
-  { to: '/restaurantes', icon: '🍽️', label: 'Comer' },
-  { to: '/mapa', icon: '🗺️', label: 'Mapa' },
-  { to: '/emergencias', icon: '🆘', label: 'SOS' },
+  { to: '/', icon: 'home', label: 'Inicio' },
+  { to: '/lugares', icon: 'places', label: 'Lugares' },
+  { to: '/restaurantes', icon: 'food', label: 'Comer' },
+  { to: '/mapa', icon: 'map', label: 'Mapa' },
+  { to: '/emergencias', icon: 'sos', label: 'SOS' },
 ]
 
 export default function Layout({ children }: { children: ReactNode }) {
   const location = useLocation()
   const navigate = useNavigate()
   const isHome = location.pathname === '/'
-  const title = titles[location.pathname] ?? 'Guía de Viena Para Juan y Andrea'
+  const title = titles[location.pathname] ?? 'Viajes J.R. Collini'
 
   return (
     <>
@@ -39,6 +41,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           </button>
         )}
         <h1 className="app-header__title">{title}</h1>
+        <ThemeSwitcher />
       </header>
 
       <main className="app-main">{children}</main>
@@ -54,7 +57,7 @@ export default function Layout({ children }: { children: ReactNode }) {
             }
           >
             <span className="bottom-nav__icon" aria-hidden="true">
-              {item.icon}
+              <Icon name={item.icon} />
             </span>
             {item.label}
           </NavLink>

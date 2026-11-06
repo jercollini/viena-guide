@@ -2,21 +2,27 @@ import { Link } from 'react-router-dom'
 import WeatherWidget from '../components/WeatherWidget'
 import BlurText from '../components/BlurText'
 import Reveal from '../components/Reveal'
+import Icon from '../components/Icon'
+import { places } from '../data/places'
 
 const menu = [
-  { to: '/lugares', icon: '📸', label: 'Lugares imprescindibles' },
-  { to: '/restaurantes', icon: '🍽️', label: 'Dónde comer' },
-  { to: '/transporte', icon: '🚋', label: 'Cómo moverse' },
-  { to: '/frases', icon: '💬', label: 'Frases útiles' },
-  { to: '/mapa', icon: '🗺️', label: 'Mapa' },
-  { to: '/emergencias', icon: '🆘', label: 'Emergencias' },
+  { to: '/lugares', icon: 'places', label: 'Lugares imprescindibles' },
+  { to: '/restaurantes', icon: 'food', label: 'Dónde comer' },
+  { to: '/transporte', icon: 'transport', label: 'Cómo moverse' },
+  { to: '/frases', icon: 'phrases', label: 'Frases útiles' },
+  { to: '/mapa', icon: 'map', label: 'Mapa' },
+  { to: '/emergencias', icon: 'sos', label: 'Emergencias' },
 ]
 
 export default function Home() {
   return (
     <div>
       <section className="hero">
-        <div className="hero__aurora" aria-hidden="true" />
+        <div
+          className="hero__photo"
+          style={{ backgroundImage: `url(${places.find((p) => p.id === 'schonbrunn')?.image})` }}
+          aria-hidden="true"
+        />
         <div className="hero__content">
           <div className="hero__eyebrow">4 días en</div>
           <h1 className="hero__title">
@@ -35,9 +41,12 @@ export default function Home() {
           <Reveal key={item.to} delay={i * 60}>
             <Link to={item.to} className="menu-card">
               <span className="menu-card__icon" aria-hidden="true">
-                {item.icon}
+                <Icon name={item.icon} size={26} />
               </span>
               <span className="menu-card__label">{item.label}</span>
+              <span className="menu-card__arrow" aria-hidden="true">
+                <Icon name="arrow" size={18} />
+              </span>
             </Link>
           </Reveal>
         ))}

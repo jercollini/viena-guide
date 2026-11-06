@@ -1,3 +1,4 @@
+import Icon from '../components/Icon'
 import { emergencyContacts, emergencyTips } from '../data/emergency'
 
 export default function Emergency() {
@@ -15,7 +16,7 @@ export default function Emergency() {
             </div>
             {c.phone && (
               <a className="emergency-call" href={`tel:${c.phone}`}>
-                📞 Llamar
+                <Icon name="phone" size={18} /> Llamar
               </a>
             )}
           </div>

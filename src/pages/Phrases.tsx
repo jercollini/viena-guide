@@ -1,4 +1,5 @@
 import { phraseGroups } from '../data/phrases'
+import Icon from '../components/Icon'
 
 export default function Phrases() {
   return (
@@ -14,7 +15,7 @@ export default function Phrases() {
             <div key={p.es} className="phrase">
               <div className="phrase__es">{p.es}</div>
               <div className="phrase__de">{p.de}</div>
-              <div className="phrase__pron">🔊 {p.pron}</div>
+              <div className="phrase__pron"><Icon name="sound" size={15} /> {p.pron}</div>
             </div>
           ))}
         </section>

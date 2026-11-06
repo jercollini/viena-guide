@@ -45,7 +45,7 @@ describe('Layout', () => {
     const back = screen.getByRole('button', { name: 'Volver al inicio' })
     expect(back).toBeInTheDocument()
     await userEvent.click(back)
-    expect(screen.getByRole('heading', { name: /Guía de Viena/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /Viajes J\.R\. Collini/i })).toBeInTheDocument()
   })
 
   it('renders the bottom navigation links', () => {
@@ -57,6 +57,6 @@ describe('Layout', () => {
 
   it('uses the default title on unknown routes', () => {
     renderAt('/ruta-inexistente')
-    expect(screen.getByRole('heading', { name: /Guía de Viena/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /Viajes J\.R\. Collini/i })).toBeInTheDocument()
   })
 })

@@ -1,43 +1,126 @@
-:root {
-  color-scheme: dark;
-  --bg: #050507;
-  --bg-2: #141418;
-  --surface: rgba(255, 255, 255, 0.06);
-  --surface-2: rgba(255, 255, 255, 0.1);
-  --surface-solid: rgba(30, 30, 36, 0.66);
-  --text: #f5f5f7;
-  --text-soft: rgba(235, 235, 245, 0.6);
-  --text-faint: rgba(235, 235, 245, 0.35);
-  --border: rgba(255, 255, 255, 0.12);
-  --border-strong: rgba(255, 255, 255, 0.2);
-  --accent: #ff5a5f;
-  --accent-2: #e7b95c;
-  --blue: #0a84ff;
-  --green: #30d158;
-  --blur: 26px;
+/* Temas: "pop" (por defecto), "aurora" y "neon". Se cambia con ?theme=aurora */
+:root,
+:root[data-theme="pop"] {
+  color-scheme: light;
+  --bg: #ffe14d;
+  --bg-2: #fff0a0;
+  --surface: #ffffff;
+  --surface-solid: #ffffff;
+  --surface-2: #fff6c9;
+  --text: #111111;
+  --text-soft: #3d3d3d;
+  --text-faint: #6b6b6b;
+  --border: #111111;
+  --border-strong: #111111;
+  --bw: 2.5px;
+  --accent: #ff3d81;
+  --accent-contrast: #ffffff;
+  --accent-2: #2f5bff;
+  --green: #00b86b;
+  --tag-bg: #c8f169;
+  --tag-fg: #111111;
+  --tag-border: #111111;
+  --tip-bg: #d9e2ff;
+  --tip-fg: #111111;
+  --tip-border: #2f5bff;
+  --nav-bg: #ffffff;
+  --font-display: "Bricolage Grotesque", "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Bricolage Grotesque", system-ui, sans-serif;
   --radius-lg: 28px;
+  --radius: 20px;
+  --radius-sm: 12px;
+  --pill: 999px;
+  --shadow-sm: 4px 4px 0 #111;
+  --shadow: 7px 7px 0 #111;
+  --hero-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.7) 100%);
+  --hero-text: #ffffff;
+  --title-weight: 800;
+  --map-style: World_Street_Map;
+  --blur-nav: none;
+}
+
+:root[data-theme="aurora"] {
+  color-scheme: light;
+  --bg: #eef0ff;
+  --bg-2: #e0e4ff;
+  --surface: #ffffff;
+  --surface-solid: #ffffff;
+  --surface-2: #f1f2ff;
+  --text: #17142e;
+  --text-soft: #5d5a7a;
+  --text-faint: #9a98b8;
+  --border: rgba(80, 70, 200, 0.1);
+  --border-strong: rgba(80, 70, 200, 0.2);
+  --bw: 1px;
+  --accent: #6c4dff;
+  --accent-contrast: #ffffff;
+  --accent-2: #ff5fa2;
+  --green: #14b87a;
+  --tag-bg: rgba(108, 77, 255, 0.1);
+  --tag-fg: #5a3df0;
+  --tag-border: transparent;
+  --tip-bg: linear-gradient(135deg, #fff0f7, #f1edff);
+  --tip-fg: #4a2f8a;
+  --tip-border: #ff5fa2;
+  --nav-bg: rgba(255, 255, 255, 0.78);
+  --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+  --radius-lg: 34px;
+  --radius: 26px;
+  --radius-sm: 16px;
+  --pill: 999px;
+  --shadow-sm: 0 2px 4px rgba(60, 40, 180, 0.04), 0 14px 32px -12px rgba(60, 40, 180, 0.2);
+  --shadow: 0 24px 48px -16px rgba(60, 40, 180, 0.35);
+  --hero-overlay: linear-gradient(160deg, rgba(108, 77, 255, 0.35) 0%, rgba(255, 95, 162, 0.25) 45%, rgba(20, 10, 70, 0.8) 100%);
+  --hero-text: #ffffff;
+  --title-weight: 800;
+  --map-style: World_Street_Map;
+}
+
+:root[data-theme="neon"] {
+  color-scheme: dark;
+  --bg: #0b0b12;
+  --bg-2: #15151f;
+  --surface: #15151f;
+  --surface-solid: #15151f;
+  --surface-2: #1e1e2b;
+  --text: #f4f4f8;
+  --text-soft: #a2a2b8;
+  --text-faint: #6c6c82;
+  --border: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.2);
+  --bw: 1px;
+  --accent: #c6ff3d;
+  --accent-contrast: #0b0b12;
+  --accent-2: #ff6bd6;
+  --green: #c6ff3d;
+  --tag-bg: rgba(198, 255, 61, 0.12);
+  --tag-fg: #c6ff3d;
+  --tag-border: transparent;
+  --tip-bg: rgba(255, 107, 214, 0.1);
+  --tip-fg: #ffc2ef;
+  --tip-border: #ff6bd6;
+  --nav-bg: rgba(11, 11, 18, 0.82);
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Space Grotesk", system-ui, sans-serif;
+  --radius-lg: 30px;
   --radius: 22px;
-  --radius-sm: 15px;
-  --shadow-sm: 0 1px 1px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.36);
-  --shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 30px 70px rgba(0, 0, 0, 0.6);
-  --glow: 0 0 40px rgba(255, 90, 95, 0.25);
+  --radius-sm: 14px;
+  --pill: 999px;
+  --shadow-sm: 0 10px 30px -12px rgba(0, 0, 0, 0.7);
+  --shadow: 0 0 0 1px rgba(198, 255, 61, 0.35), 0 20px 50px -14px rgba(198, 255, 61, 0.25);
+  --hero-overlay: linear-gradient(180deg, rgba(11, 11, 18, 0.05) 0%, rgba(11, 11, 18, 0.9) 100%);
+  --hero-text: #ffffff;
+  --title-weight: 700;
+  --map-style: World_Dark_Gray_Base;
+}
 
-  /* Alias de compatibilidad */
-  --color-primary: var(--accent);
-  --color-surface: var(--surface-solid);
-  --color-text: var(--text);
-  --color-text-soft: var(--text-soft);
-  --color-border: var(--border);
-  --color-accent: var(--accent-2);
-
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI",
-    Roboto, system-ui, sans-serif;
-  font-size: 18px;
-  line-height: 1.47;
+:root {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.5;
   color: var(--text);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   -webkit-text-size-adjust: 100%;
 }
@@ -55,12 +138,7 @@ body {
 body {
   min-height: 100vh;
   color: var(--text);
-  background:
-    radial-gradient(70% 50% at 78% -6%, rgba(255, 90, 95, 0.22), transparent 60%),
-    radial-gradient(60% 46% at 6% 8%, rgba(120, 90, 255, 0.2), transparent 62%),
-    radial-gradient(80% 60% at 50% 108%, rgba(10, 132, 255, 0.18), transparent 60%),
-    linear-gradient(180deg, #0a0a10, #050507 60%);
-  background-attachment: fixed;
+  background: var(--bg);
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -72,7 +150,8 @@ body {
 h1,
 h2,
 h3 {
-  letter-spacing: -0.022em;
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
   color: var(--text);
 }
 
@@ -84,7 +163,7 @@ h1 {
 
 h2 {
   font-size: 1.35rem;
-  font-weight: 640;
+  font-weight: var(--title-weight);
   margin: 0 0 0.3em;
 }
 
