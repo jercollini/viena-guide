@@ -21,7 +21,7 @@ describe('App (routing)', () => {
   it('renders the home page on the root route', () => {
     render(
       <MemoryRouter initialEntries={['/']}>
-        <App />
+        <App design="app" />
       </MemoryRouter>,
     )
     expect(screen.getByText(guide.city)).toBeInTheDocument()
@@ -30,7 +30,7 @@ describe('App (routing)', () => {
   it('renders the phrases page on its route', () => {
     render(
       <MemoryRouter initialEntries={['/frases']}>
-        <App />
+        <App design="app" />
       </MemoryRouter>,
     )
     expect(
@@ -41,7 +41,7 @@ describe('App (routing)', () => {
   it('redirects unknown routes to home', () => {
     render(
       <MemoryRouter initialEntries={['/no-existe']}>
-        <App />
+        <App design="app" />
       </MemoryRouter>,
     )
     expect(screen.getByText(guide.city)).toBeInTheDocument()

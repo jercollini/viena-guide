@@ -1,7 +1,12 @@
 // Shared data model. Everything city-specific lives in src/guide/ and follows
 // these types, so a new guide only needs new data files.
 
+/** Visual design of a guide. "app" is the original tabbed app with themes. */
+export type Design = 'app' | 'revista' | 'ruta'
+
 export interface GuideConfig {
+  /** Look of the whole site (layout, navigation, type). Defaults to "app". */
+  design?: Design
   /** Brand shown in the header on the home page. */
   brand: string
   /** City name as shown in the UI (Spanish), e.g. "Lisboa". */

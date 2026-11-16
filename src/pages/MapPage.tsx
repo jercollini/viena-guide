@@ -27,7 +27,8 @@ const foodIcon = pinIcon('food')
 function useTileStyle() {
   const read = () =>
     typeof document !== 'undefined' &&
-    document.documentElement.getAttribute('data-theme') === 'neon'
+    (document.documentElement.getAttribute('data-theme') === 'neon' ||
+      document.documentElement.getAttribute('data-design') === 'ruta')
       ? 'Canvas/World_Dark_Gray_Base'
       : 'World_Street_Map'
   const [style, setStyle] = useState(read)

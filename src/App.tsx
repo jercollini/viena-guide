@@ -8,8 +8,14 @@ import Phrases from './pages/Phrases'
 import Emergency from './pages/Emergency'
 import MapPage from './pages/MapPage'
 import Itinerary from './pages/Itinerary'
+import RevistaApp from './designs/revista/RevistaApp'
+import RutaApp from './designs/ruta/RutaApp'
+import { resolveDesign } from './designs/shared'
+import type { Design } from './types'
 
-export default function App() {
+export default function App({ design = resolveDesign() }: { design?: Design }) {
+  if (design === 'revista') return <RevistaApp />
+  if (design === 'ruta') return <RutaApp />
   return (
     <Layout>
       <Routes>

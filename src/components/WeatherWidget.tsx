@@ -12,7 +12,7 @@ const URL =
   `?latitude=${guide.coords.lat}&longitude=${guide.coords.lng}` +
   `&current=temperature_2m,weather_code&timezone=${encodeURIComponent(guide.timezone)}`
 
-function describe(code: number): { icon: string; text: string } {
+export function describe(code: number): { icon: string; text: string } {
   if (code === 0) return { icon: '☀️', text: 'Despejado' }
   if (code <= 2) return { icon: '🌤️', text: 'Poco nuboso' }
   if (code === 3) return { icon: '☁️', text: 'Nublado' }
@@ -24,7 +24,7 @@ function describe(code: number): { icon: string; text: string } {
   return { icon: '🌡️', text: 'Tiempo' }
 }
 
-export default function WeatherWidget() {
+export function useWeather() {
   const [weather, setWeather] = useState<WeatherState | null>(null)
   const [error, setError] = useState(false)
 
@@ -44,6 +44,12 @@ export default function WeatherWidget() {
       active = false
     }
   }, [])
+
+  return { weather, error }
+}
+
+export default function WeatherWidget() {
+  const { weather, error } = useWeather()
 
   if (error) {
     return (

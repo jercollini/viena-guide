@@ -204,7 +204,7 @@
   z-index: -2;
   background-size: cover;
   background-position: center;
-  animation: kenburns 24s ease-in-out infinite alternate;
+  animation: kenburns 2.4s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 .hero::after {
   content: "";
@@ -214,8 +214,8 @@
   background: var(--hero-overlay);
 }
 @keyframes kenburns {
-  from { transform: scale(1.02); }
-  to { transform: scale(1.12) translateX(-2%); }
+  from { transform: scale(1.1); }
+  to { transform: scale(1.02); }
 }
 .hero__eyebrow {
   display: inline-block;
@@ -375,6 +375,7 @@
   box-shadow: var(--shadow-sm);
 }
 .weather__icon { font-size: 2.4rem; line-height: 1; }
+.weather__temp, .stop__time, .day__badge { font-variant-numeric: tabular-nums; }
 .weather__temp { font-family: var(--font-display); font-size: 1.9rem; font-weight: var(--title-weight); line-height: 1.1; }
 .weather__desc { color: var(--text-soft); font-size: 0.92rem; }
 .weather--muted { opacity: 0.8; }
@@ -568,3 +569,105 @@
 }
 .dish__spot strong { font-size: 1.05rem; margin-top: 2px; }
 .dish__spot .address { margin: 2px 0 0; }
+
+/* ===== Theme "cuaderno" ===== */
+:root[data-theme="cuaderno"] .app-header { -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+:root[data-theme="cuaderno"] .app-header__title { font-weight: 600; letter-spacing: -0.01em; }
+:root[data-theme="cuaderno"] .theme-switcher__btn { background: transparent; color: var(--text); border-color: var(--border-strong); }
+
+/* Full-bleed photographic hero with the city set large. */
+:root[data-theme="cuaderno"] .hero {
+  margin: -20px -18px 28px;
+  border-radius: 0;
+  min-height: min(70vh, 560px);
+  padding: 32px 22px 30px;
+  box-shadow: none;
+}
+:root[data-theme="cuaderno"] .hero__eyebrow {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  color: var(--hero-text);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+:root[data-theme="cuaderno"] .hero__eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+:root[data-theme="cuaderno"] .hero__title {
+  font-size: 5.2rem;
+  font-weight: 500;
+  font-variation-settings: "opsz" 144;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+}
+:root[data-theme="cuaderno"] .hero__subtitle { font-size: 1.1rem; max-width: 22em; }
+
+:root[data-theme="cuaderno"] .weather { border-left: 0; border-right: 0; border-radius: 0; padding: 14px 2px; background: transparent; }
+
+/* Home menu: a numbered contents list instead of icon tiles. */
+:root[data-theme="cuaderno"] .page-intro { font-family: var(--font-display); font-size: 1.35rem; line-height: 1.3; color: var(--text); }
+:root[data-theme="cuaderno"] .menu-grid { grid-template-columns: 1fr; gap: 0; counter-reset: menu; border-top: 1px solid var(--border-strong); }
+:root[data-theme="cuaderno"] .menu-card {
+  counter-increment: menu;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  min-height: 72px;
+  padding: 14px 4px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--border-strong);
+  border-radius: 0;
+  box-shadow: none;
+}
+:root[data-theme="cuaderno"] .menu-card::before {
+  content: counter(menu, decimal-leading-zero);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  width: 1.8em;
+}
+:root[data-theme="cuaderno"] .menu-card__icon { width: 36px; height: 36px; background: var(--surface-2); color: var(--text); border: 0; border-radius: 50%; }
+:root[data-theme="cuaderno"] .menu-card__label { margin-top: 0; font-size: 1.3rem; font-weight: 500; }
+:root[data-theme="cuaderno"] .menu-card__arrow { position: static; margin-left: auto; }
+:root[data-theme="cuaderno"] .menu-card:hover { transform: none; box-shadow: none; background: var(--surface); }
+:root[data-theme="cuaderno"] .menu-card:active { transform: none; box-shadow: none; background: var(--surface-2); }
+
+/* Cards: flat paper, photo first, 2px lift and a slight zoom on hover. */
+:root[data-theme="cuaderno"] .card,
+:root[data-theme="cuaderno"] .day,
+:root[data-theme="cuaderno"] .phrase-group { margin-bottom: 28px; }
+:root[data-theme="cuaderno"] .card__img { height: auto; aspect-ratio: 4 / 3; }
+:root[data-theme="cuaderno"] .card__body { padding: 20px 20px 22px; }
+:root[data-theme="cuaderno"] .card__body h2,
+:root[data-theme="cuaderno"] .day__header h2 { font-size: 1.7rem; font-weight: 500; line-height: 1.1; }
+@media (hover: hover) {
+  :root[data-theme="cuaderno"] .card:hover { transform: translateY(-2px); }
+  :root[data-theme="cuaderno"] .card:hover .card__img { transform: scale(1.03); }
+}
+:root[data-theme="cuaderno"] .tag { padding: 0; letter-spacing: 0.16em; }
+:root[data-theme="cuaderno"] .tip { border-radius: 0; border-left-width: 3px; }
+:root[data-theme="cuaderno"] .btn-link,
+:root[data-theme="cuaderno"] .emergency-call { border-radius: var(--radius-sm); border: 0; }
+:root[data-theme="cuaderno"] .btn-link:hover { filter: brightness(0.92); }
+:root[data-theme="cuaderno"] .day__badge { background: none; border: 0; padding: 0; color: var(--accent); letter-spacing: 0.16em; }
+:root[data-theme="cuaderno"] .phrase-group h2 { border-bottom-width: 1px; font-weight: 500; }
+:root[data-theme="cuaderno"] .phrase__de { font-weight: 500; }
+:root[data-theme="cuaderno"] .emergency-item { border-left-width: 3px; }
+
+/* Bottom nav: no filled pill, the active tab gets the accent and a top rule. */
+:root[data-theme="cuaderno"] .bottom-nav__item.active { color: var(--accent); }
+:root[data-theme="cuaderno"] .bottom-nav__item.active .bottom-nav__icon { background: none; color: var(--accent); }
+:root[data-theme="cuaderno"] .bottom-nav__item.active::before {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 30%;
+  right: 30%;
+  height: 2px;
+  background: var(--accent);
+}
+@media (max-width: 380px) { :root[data-theme="cuaderno"] .hero__title { font-size: 4rem; } }

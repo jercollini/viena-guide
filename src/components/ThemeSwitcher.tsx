@@ -4,6 +4,7 @@ export const THEMES = [
   { id: 'pop', label: 'Pop', hint: 'Divertido', color: '#ffe14d', dot: '#ff3d81', meta: '#ffe14d' },
   { id: 'aurora', label: 'Claro', hint: 'Aurora', color: '#eef0ff', dot: '#6c4dff', meta: '#eef0ff' },
   { id: 'neon', label: 'Oscuro', hint: 'Neón', color: '#0b0b12', dot: '#c6ff3d', meta: '#0b0b12' },
+  { id: 'cuaderno', label: 'Cuaderno', hint: 'Clásico', color: '#f4eee3', dot: '#b5432a', meta: '#f4eee3' },
 ] as const
 
 type ThemeId = (typeof THEMES)[number]['id']
