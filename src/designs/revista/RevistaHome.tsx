@@ -32,7 +32,7 @@ export default function RevistaHome() {
             <span>Guía de viaje</span>
             <span>{guide.country}</span>
           </p>
-          <h1 className="rv-cover__mast" style={{ fontSize: mastSize }}>
+          <h1 className="rv-cover__mast" style={{ fontSize: mastSize }} data-overlap-ok="tight line-height: the font box, not the capitals, reaches the line above">
             {guide.city}
           </h1>
           <p className="rv-cover__issue rv-cover__issue--rule">
@@ -105,7 +105,7 @@ export default function RevistaHome() {
         <div className="rv-days">
           {itinerary.map((d) => (
             <Link key={d.day} to={`/plan?go=dia-${d.day}`} className="rv-day">
-              <span className="rv-day__num" aria-hidden="true">
+              <span className="rv-day__num" aria-hidden="true" data-overlap-ok="outline numeral behind the title">
                 {pad(d.day)}
               </span>
               <span className="rv-day__text">

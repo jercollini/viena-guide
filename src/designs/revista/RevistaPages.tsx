@@ -132,7 +132,14 @@ export function RvFood() {
       <ol className="rv-menu">
         {dishes.map((d, i) => (
           <li key={d.id} id={d.id} className="rv-dish">
-            {d.image && <Photo src={d.image} name={d.name} className="rv-dish__photo" />}
+            {d.image && (
+              <div className="rv-dish__media">
+                <Photo src={d.image} name={d.name} className="rv-dish__photo" />
+                <span className="rv-dish__num" aria-hidden="true">
+                  {pad(i + 1)}
+                </span>
+              </div>
+            )}
             <div className="rv-dish__line">
               <h2 className="rv-dish__name">{d.name}</h2>
               <span className="rv-dish__dots" aria-hidden="true" />
@@ -151,9 +158,6 @@ export function RvFood() {
                 <Directions lat={d.spot.lat} lng={d.spot.lng} />
               </div>
             )}
-            <span className="rv-dish__num" aria-hidden="true">
-              {pad(i + 1)}
-            </span>
           </li>
         ))}
       </ol>

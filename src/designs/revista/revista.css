@@ -145,7 +145,7 @@ html[data-design='revista'] :focus-visible { outline: 2px solid var(--rv-red); o
 }
 .rv-cover__top { animation: rv-rise 0.9s var(--rv-ease) 0.15s both; }
 .rv-cover__mast {
-  margin: 6px 0 4px !important;
+  margin: 12px 0 10px !important;
   font-family: var(--rv-serif) !important;
   font-weight: 400;
   font-variation-settings: 'opsz' 144;
@@ -174,11 +174,15 @@ html[data-design='revista'] :focus-visible { outline: 2px solid var(--rv-red); o
 .rv-now > div:first-child { padding-left: 0; border-left: 0; }
 .rv-now strong { font: 400 2rem/1.05 var(--rv-serif); font-variant-numeric: tabular-nums; }
 .rv-now__word { font-size: 1.35rem !important; line-height: 1.5 !important; text-transform: capitalize; }
+@media (max-width: 400px) {
+  .rv-now { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .rv-now > div:last-child { grid-column: span 2; padding-left: 0; border-left: 0; }
+}
 .rv-now__desc { font-size: 0.85rem; color: var(--rv-soft); }
 
 /* Blocks */
 .rv-block { max-width: var(--rv-measure); margin: 0 auto; padding: 56px var(--rv-gutter) 0; }
-.rv-block__head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.rv-block__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0 16px; }
 .rv-block__title { font: 400 2.1rem/1.05 var(--rv-serif) !important; letter-spacing: -0.02em; margin-bottom: 20px !important; }
 .rv-more { flex: none; display: inline-flex; align-items: center; min-height: 44px; font: 600 0.78rem var(--rv-sans); letter-spacing: 0.12em; text-transform: uppercase; border-bottom: 1px solid currentColor; color: var(--rv-red) !important; }
 .rv-more::after { content: '→'; margin-left: 6px; transition: transform 0.2s var(--rv-ease); }
@@ -327,7 +331,7 @@ html[data-design='revista'] :focus-visible { outline: 2px solid var(--rv-red); o
 .rv-menu { list-style: none; margin: 0; padding: 0; }
 .rv-dish { position: relative; padding: 36px 0 40px; border-bottom: 1px solid var(--rv-line); scroll-margin-top: 70px; }
 .rv-dish__photo { width: 100%; aspect-ratio: 3 / 2; height: auto; object-fit: cover; margin-bottom: 20px; background: var(--rv-paper-2); }
-.rv-dish__line { display: flex; align-items: baseline; gap: 10px; }
+.rv-dish__line { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
 .rv-dish__name { font: 400 1.85rem/1.08 var(--rv-serif) !important; letter-spacing: -0.02em; }
 .rv-dish__dots { flex: 1; min-width: 20px; border-bottom: 1.5px dotted var(--rv-line-strong); transform: translateY(-5px); }
 .rv-dish__gloss { margin-top: 4px !important; font: italic 1.05rem var(--rv-serif); color: var(--rv-soft); }
@@ -335,7 +339,9 @@ html[data-design='revista'] :focus-visible { outline: 2px solid var(--rv-red); o
 .rv-dish__spot { display: grid; justify-items: start; gap: 2px; margin-top: 20px; padding: 16px 18px; background: var(--rv-card); border: 1px solid var(--rv-line); }
 .rv-dish__spot strong { font: 400 1.3rem var(--rv-serif); }
 .rv-dish__spot .rv-address { margin: 2px 0 10px !important; }
-.rv-dish__num { position: absolute; top: 44px; right: 12px; font: 300 1rem var(--rv-sans); color: #fff; mix-blend-mode: difference; }
+.rv-dish__media { position: relative; margin-bottom: 20px; }
+.rv-dish__media .rv-dish__photo { margin-bottom: 0; }
+.rv-dish__num { position: absolute; top: 10px; right: 10px; padding: 2px 8px; background: var(--rv-paper); color: var(--rv-ink); font: 500 0.8rem var(--rv-sans); font-variant-numeric: tabular-nums; }
 
 /* Lists: transport, emergency */
 .rv-list { list-style: none; margin: 0; padding: 0; }

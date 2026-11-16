@@ -153,6 +153,11 @@ html[data-design='ruta'] :focus-visible { outline: 2px solid var(--rt-amber); ou
 .rt-pass__stub::before,
 .rt-pass__stub::after { content: ''; position: absolute; left: -10px; width: 18px; height: 18px; border-radius: 50%; background: var(--rt-bg); }
 .rt-pass__stub::before { top: -9px; }
+@media (max-width: 360px) {
+  .rt-pass { grid-template-columns: 1fr 1fr; }
+  .rt-pass__stub { grid-column: span 2; display: flex; align-items: baseline; gap: 10px; border-left: 0; border-top: 2px dashed rgba(27, 18, 6, 0.35); }
+  .rt-pass__stub::before, .rt-pass__stub::after { display: none; }
+}
 .rt-pass__stub::after { bottom: -9px; }
 
 /* Sections */
@@ -229,7 +234,7 @@ html[data-design='ruta'] :focus-visible { outline: 2px solid var(--rt-amber); ou
 /* Pages */
 .rt-page { max-width: var(--rt-measure); margin: 0 auto; padding: 24px var(--rt-gutter) 0; }
 .rt-page__head { margin-bottom: 24px; }
-.rt-page__head h1 { font: 800 clamp(2.2rem, 10vw, 3.2rem)/0.95 var(--rt-display) !important; letter-spacing: -0.035em; text-transform: uppercase; }
+.rt-page__head h1 { font: 800 clamp(1.6rem, 8.2vw, 3.2rem)/0.95 var(--rt-display) !important; overflow-wrap: anywhere; letter-spacing: -0.035em; text-transform: uppercase; }
 .rt-page__head p { margin-top: 12px !important; color: var(--rt-soft); font-size: 1.02rem; line-height: 1.5; }
 .rt-cards { display: grid; gap: 20px; }
 .rt-card { overflow: hidden; background: var(--rt-s1); border: 1px solid var(--rt-line); border-radius: var(--rt-r); scroll-margin-top: 76px; }
